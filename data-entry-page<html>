@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Classification</title>
+</head>
+
+<style>
+
+    body {
+       background-image:url("https://wallpaperaccess.com/full/1132439.jpg");
+       background-blend-mode: lighten;
+    }
+
+    .heading {
+        border: 2px solid #2034e8;
+        width: 350px;
+        margin: 0 33%;
+        padding: 15px;
+        background-color: #5ce677;
+        font-family: 'Carattere', cursive;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .container {
+        width: 50%;
+        margin: 2% 25%;
+        position: relative;
+        
+        background-color: #e4f5eb;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .container > div {
+        margin: 20px 25px;
+    }
+    input[type=text] {
+        background-color: transparent;
+        border: 0;
+        border-bottom: 2px solid #055216;
+        font-family: 'Carattere', cursive;
+        font-size:1.4rem;
+        margin-left: 15px;
+        width: auto;
+        transition: 0.7s ease-in;
+    }
+    input[type=text]:focus {
+        outline: none;
+        transform: scale(0.93);
+       
+    }
+    label {
+        font-family: 'Carattere', cursive;
+        font-size: 1.5rem;
+    }
+    input[type=submit] {
+        font-family: 'Carattere', cursive;
+        font-size:1rem;
+        background-color: #30f0d0;
+        margin: 5px 30%;
+        padding: 15px;
+        width: auto;
+        height: auto;
+        outline: none;
+}
+    input[type=submit]:hover {
+    background-color: #90f0a3;
+    transform: scale(1.10);
+}
+</style>
+
+<body>
+    <div class="heading">Scientific Classification</div>
+    <form class="container">
+        <div>
+            <label>Kingdom: </label>
+            <input type="text" name="kingdom" placeholder="Kingdom">
+        </div>
+        <div>     
+            <label>Phylum: </label>
+            <input type="text" name="phylum" placeholder="Phylum">
+            
+        </div>           
+        <div>           
+            <label>Class: </label>
+            <input type="text" name="class" placeholder="Class">
+         </div>             
+        <div>            
+            <label>Order: </label>
+            <input type="text" name="order" placeholder="Order">
+        </div>          
+         <div>          
+            <label>Family: </label>
+            <input type="text" name="family" placeholder="Family">
+        </div>          
+        <div>         
+            <label>Subfamily: </label>
+            <input type="text" name="subfamily" placeholder="Subfamily">
+        </div>        
+        <div>            
+            <label>Genus: </label>
+            <input type="text" name="genus" placeholder="Genus"> 
+        </div>          
+        <div>         
+            <label>Species: </label>
+            <input type="text" name="species" placeholder="Species">
+        </div>  
+        <div class="submit">
+            <input type="submit" value="Submit Here"> 
+        </div>
+    </form>
+    
+</body>
+</html>
