@@ -80,4 +80,4 @@ def generate_summary(file_name, top_n=5):
     print("Summarize Text: \n", ". ".join(summarize_text))
 
 # let's begin
-generate_summary( "human.txt", 2)
+generate_summary( "test/human.txt", 2)
