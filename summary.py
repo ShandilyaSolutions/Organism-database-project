@@ -8,10 +8,8 @@ def read_article(paragraph):
     sentences = []
 
     for sentence in article:
-        print(sentence)
         sentences.append(sentence.replace("[^a-zA-Z]", " ").split(" "))
     sentences.pop() 
-    print()
     
     return sentences
 
@@ -54,7 +52,7 @@ def build_similarity_matrix(sentences, stop_words):
     return similarity_matrix
 
 
-def generate_summary(paragraph, top_n=5):
+def get_summary_para(paragraph, top_n=5):
     stop_words = stopwords.words('english')
     summarize_text = []
 
@@ -76,12 +74,15 @@ def generate_summary(paragraph, top_n=5):
       summarize_text.append(" ".join(ranked_sentence[i][1]))
 
     # Step 5 - Offcourse, output the summarize texr
-    print("Summarize Text: \n", ". ".join(summarize_text))
+    return ". ".join(summarize_text)
 
-def get_summary(file, n):
+def get_summary_file(file, n):
     f = open(file)
     for i in f:
-        generate_summary(i.strip(), n)
+        print("********************** Original Text: ***********************")
+        print(i)
+        print("********************* Summarize Text: ***********************")
+        print(get_summary_para(i.strip(), n))
         print("\n\n")
 
-get_summary("tests/human1.txt", 5)
+get_summary_file("tests/human_per_para.txt", 5)
