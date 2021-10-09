@@ -74,7 +74,7 @@
 
 <body>
     <div class="heading">Scientific Classification</div>
-    <form class="container">
+    <form class="container" action="C:\Users\91914\Desktop\projects\ODP\" method = "get" >
         <div>
             <label>Kingdom: </label>
             <input type="text" name="kingdom" placeholder="Kingdom">
@@ -95,11 +95,7 @@
          <div>          
             <label>Family: </label>
             <input type="text" name="family" placeholder="Family">
-        </div>          
-        <div>         
-            <label>Subfamily: </label>
-            <input type="text" name="subfamily" placeholder="Subfamily">
-        </div>        
+        </div>       
         <div>            
             <label>Genus: </label>
             <input type="text" name="genus" placeholder="Genus"> 
