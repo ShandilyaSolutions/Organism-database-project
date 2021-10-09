@@ -74,7 +74,7 @@
 
 <body>
     <div class="heading">Scientific Classification</div>
-    <form class="container" <!--action="Locate File here" --> >
+    <form class="container" action="C:\Users\91914\Desktop\projects\ODP\" method = "get" >
         <div>
             <label>Kingdom: </label>
             <input type="text" name="kingdom" placeholder="Kingdom">
