@@ -85,4 +85,4 @@ def get_summary_file(file, n):
         print(get_summary_para(i.strip(), n))
         print("\n\n")
 
-get_summary_file("tests/human_per_para.txt", 5)
+get_summary_file("tests/human_in_one.txt", 10)
