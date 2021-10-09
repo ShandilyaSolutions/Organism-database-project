@@ -3,6 +3,7 @@ from nltk.cluster.util import cosine_distance
 import numpy as np
 import networkx as nx
  
+
 def read_article(paragraph):
     article = paragraph.split(". ")
     sentences = []
@@ -85,4 +86,5 @@ def get_summary_file(file, n):
         print(get_summary_para(i.strip(), n))
         print("\n\n")
 
-get_summary_file("tests/human_in_one.txt", 10)
+if __name__ == "__main__":
+    get_summary_file("tests/human_in_one.txt", 10)
