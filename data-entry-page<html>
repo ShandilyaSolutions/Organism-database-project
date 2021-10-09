@@ -95,11 +95,7 @@
          <div>          
             <label>Family: </label>
             <input type="text" name="family" placeholder="Family">
-        </div>          
-        <div>         
-            <label>Subfamily: </label>
-            <input type="text" name="subfamily" placeholder="Subfamily">
-        </div>        
+        </div>       
         <div>            
             <label>Genus: </label>
             <input type="text" name="genus" placeholder="Genus"> 
