@@ -1,10 +1,7 @@
 import wikipedia
-from collections import Counter
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import json
 import summary
-import re
 
 def get_cosine_sim(*strs): 
     vectors = [t for t in get_vectors(*strs)]
@@ -27,17 +24,15 @@ def get_final_keyword(keyword):
         score_list.append(score)
         max_score = max(max_score, score)
 
-    print(json.dumps(score_dict, indent=1))
+    # print(json.dumps(score_dict, indent=1))
     for i in score_dict:
         if score_dict[i] == max_score:
             return i
 
-    
-finalkeyword = get_final_keyword("reptile")
-
-def get_page_data(keyword):
-    finalkeyword = get_final_keyword(keyword)
-    wiki_page = wikipedia.page(finalkeyword)
+def get_page_data(user_keyword):
+    final_keyword = get_final_keyword(user_keyword)
+    print("=================", final_keyword, "===================")
+    wiki_page = wikipedia.page(final_keyword)
     para = ""
     for i in wiki_page.content.splitlines():
         str = i
@@ -62,10 +57,22 @@ def get_page_data(keyword):
 
             para = ""
 
-get_page_data("reptile")
+def get_wiki_summary(user_keyword, n = 3, summarize = True):
+    final_keyword = get_final_keyword(user_keyword)
+    print("=================", final_keyword, "===================")
+    wiki_summary = wikipedia.summary(final_keyword).splitlines()
+    result = ""
+    for i in wiki_summary:
+        if(summarize):
+            result += summary.get_summary_para(i, n) + "\n"
+        else:
+            result += i + "\n"
 
-# for i in wikipedia.summary(finalkeyword).splitlines():
-#     print(summary.get_summary_para(i, 2))
-#     print()
+    return result
+
+
+# get_page_data("reptile")
+
+print(get_wiki_summary("The Humans"))
 
 
