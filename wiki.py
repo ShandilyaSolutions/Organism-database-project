@@ -71,8 +71,8 @@ def get_wiki_summary(user_keyword, n = 3, summarize = True):
     return result
 
 
-# get_page_data("reptile")
-
-print(get_wiki_summary("The Humans"))
+if __name__ == "__main__":
+    # get_page_data("reptile")
+    print(get_wiki_summary("The Humans"))
 
 
