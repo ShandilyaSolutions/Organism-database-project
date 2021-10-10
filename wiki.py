@@ -2,6 +2,7 @@ import wikipedia
 from collections import Counter
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import Levenshtein
 
 def get_jaccard_sim(str1, str2): 
     a = set(str1.split()) 
@@ -28,4 +29,4 @@ for i in search_results:
 # print(score)
 
 for i  in search_results:
-    print(i, get_cosine_sim(i, keyword))
+    print(i, Levenshtein.distance(i, keyword))
