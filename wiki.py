@@ -3,6 +3,7 @@ from collections import Counter
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import json
+import summary
 
 def get_cosine_sim(*strs): 
     vectors = [t for t in get_vectors(*strs)]
@@ -32,6 +33,8 @@ def get_final_keyword(keyword):
 
     
 finalkeyword = get_final_keyword("humans")
-print(wikipedia.summary(finalkeyword))
+for i in wikipedia.summary(finalkeyword).splitlines():
+    print(summary.get_summary_para(i, 2))
+    print()
 
 
