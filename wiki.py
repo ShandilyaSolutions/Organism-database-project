@@ -16,17 +16,15 @@ def get_cosine_sim(*strs):
     
 def get_vectors(*strs):
     text = [t for t in strs]
-    vectorizer = CountVectorizer(text)
+    vectorizer = CountVectorizer()
     vectorizer.fit(text)
     return vectorizer.transform(text).toarray()
 
-keyword = "homo sapiens"
+keyword = "reptile"
 search_results = wikipedia.search(keyword)
 score = dict()
 for i in search_results:
-    score[i] = get_jaccard_sim(keyword, i)
+    score[i] = get_cosine_sim(i, keyword)[0][1]
 
-# print(score)
+print(score)
 
-for i  in search_results:
-    print(i, Levenshtein.distance(i, keyword))
