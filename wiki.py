@@ -36,18 +36,24 @@ def get_final_keyword(keyword):
 finalkeyword = get_final_keyword("humans")
 
 wiki_page = wikipedia.page(finalkeyword)
+para = ""
 for i in wiki_page.content.splitlines():
     data = dict()
     str = i
-    if(len(i)>1):
-        if(i[:3]=="==="):
+    if(len(str)>1):
+        if(str[:3]=="==="):
             str = str.removeprefix('=== ')
             str = str.removesuffix(' ===')
             print(str)
-        elif(i[:2]=="=="):
+        elif(str[:2]=="=="):
             str = str.removeprefix('== ')
             str = str.removesuffix(' ==')
             print("     ", str)
+        else:
+            para += str+"\n";
+    else:
+        print(para)
+        para = ""
 
 
 # for i in wikipedia.summary(finalkeyword).splitlines():
