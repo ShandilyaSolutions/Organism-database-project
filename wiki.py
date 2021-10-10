@@ -33,37 +33,36 @@ def get_final_keyword(keyword):
             return i
 
     
-finalkeyword = get_final_keyword("humans")
+finalkeyword = get_final_keyword("reptile")
 
-wiki_page = wikipedia.page(finalkeyword)
-para = ""
-data = {"Summary":[""]}
-h1 = ["Summary"]
-h2 = list()
-for i in wiki_page.content.splitlines():
-    str = i
-    if(len(str)>1):
-        if(str[:3]=="==="):
-            str = str.removeprefix('=== ')
-            str = str.removesuffix(' ===')
-            h2.append(str)
-            data[h1[-1]].append(str)
-            data[h1[-1]][1][str] = ""
-        elif(str[:2]=="=="):
-            str = str.removeprefix('== ')
-            str = str.removesuffix(' ==')
-            data[str] = ["", {}]
-            h1.append(str)
-            h2.clear()
-            print(str)
+def get_page_data(keyword):
+    finalkeyword = get_final_keyword(keyword)
+    wiki_page = wikipedia.page(finalkeyword)
+    para = ""
+    for i in wiki_page.content.splitlines():
+        str = i
+        if(len(str)>1):
+            if(str[:4]=="===="):
+                str = str.removeprefix('==== ')
+                str = str.removesuffix(' ====')
+                print(">>>      ", str)
+            elif(str[:3]=="==="):
+                str = str.removeprefix('=== ')
+                str = str.removesuffix(' ===')
+                print(">> ", str)
+            elif(str[:2]=="=="):
+                str = str.removeprefix('== ')
+                str = str.removesuffix(' ==')
+                print(">", str)
+            else:
+                para += str+"\n";
         else:
-            para += str+"\n";
-    else:
-        # print(para)
-        para = ""
+            if(len(para)>1):
+                print(para)
 
-print(h2)
-print(json.dumps(data, indent=1))
+            para = ""
+
+get_page_data("reptile")
 
 # for i in wikipedia.summary(finalkeyword).splitlines():
 #     print(summary.get_summary_para(i, 2))
