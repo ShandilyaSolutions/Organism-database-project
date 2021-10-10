@@ -4,6 +4,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import json
 import summary
+import re
 
 def get_cosine_sim(*strs): 
     vectors = [t for t in get_vectors(*strs)]
@@ -33,8 +34,24 @@ def get_final_keyword(keyword):
 
     
 finalkeyword = get_final_keyword("humans")
-for i in wikipedia.summary(finalkeyword).splitlines():
-    print(summary.get_summary_para(i, 2))
-    print()
+
+wiki_page = wikipedia.page(finalkeyword)
+for i in wiki_page.content.splitlines():
+    data = dict()
+    str = i
+    if(len(i)>1):
+        if(i[:3]=="==="):
+            str = str.removeprefix('=== ')
+            str = str.removesuffix(' ===')
+            print(str)
+        elif(i[:2]=="=="):
+            str = str.removeprefix('== ')
+            str = str.removesuffix(' ==')
+            print("     ", str)
+
+
+# for i in wikipedia.summary(finalkeyword).splitlines():
+#     print(summary.get_summary_para(i, 2))
+#     print()
 
 
