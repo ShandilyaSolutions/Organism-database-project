@@ -37,24 +37,33 @@ finalkeyword = get_final_keyword("humans")
 
 wiki_page = wikipedia.page(finalkeyword)
 para = ""
+data = {"Summary":[""]}
+h1 = ["Summary"]
+h2 = list()
 for i in wiki_page.content.splitlines():
-    data = dict()
     str = i
     if(len(str)>1):
         if(str[:3]=="==="):
             str = str.removeprefix('=== ')
             str = str.removesuffix(' ===')
-            print(str)
+            h2.append(str)
+            data[h1[-1]].append(str)
+            data[h1[-1]][1][str] = ""
         elif(str[:2]=="=="):
             str = str.removeprefix('== ')
             str = str.removesuffix(' ==')
-            print("     ", str)
+            data[str] = ["", {}]
+            h1.append(str)
+            h2.clear()
+            print(str)
         else:
             para += str+"\n";
     else:
-        print(para)
+        # print(para)
         para = ""
 
+print(h2)
+print(json.dumps(data, indent=1))
 
 # for i in wikipedia.summary(finalkeyword).splitlines():
 #     print(summary.get_summary_para(i, 2))
