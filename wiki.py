@@ -31,5 +31,7 @@ def get_final_keyword(keyword):
             return i
 
     
-print(get_final_keyword("naja naja"))
+finalkeyword = get_final_keyword("humans")
+print(wikipedia.summary(finalkeyword))
+
 
