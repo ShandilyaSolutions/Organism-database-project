@@ -79,4 +79,4 @@ def get_summary_file(file, n):
         print("\n\n")
 
 if __name__ == "__main__":
-    get_summary_file("tests/human_per_para.txt", 3)
+    get_summary_file("tests/naja.txt", 3)
