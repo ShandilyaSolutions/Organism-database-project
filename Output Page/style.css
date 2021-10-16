@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(rgba(5, 245, 95, 0.4), rgba(5, 245, 25, 0.4)), url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/green-leaves-bgfoto.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+   grid-template-columns: 1fr 1.8fr;
+    align-items: center;
+    justify-content: center;
+}
+
+.container h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    color: #2c3630;
+}
+
+.container h5 {
+    width: fit-content;
+    color: #2c3630;
+    border: 2px solid green;
+    border-radius: 20px;
+    background-color: #89f0b1;
+    margin-top: 10px;
+    margin-left: 15%;
+    padding: 8px;
+    font-size: 1.8rem ;
+}
+.container img {
+    margin: 10%;
+    align-self: start;
+     height: 400px;
+     width:  400px;
+     border-radius: 10%;
+}
+
+.features {
+    margin: 4%;
+    align-self:start;
+    font-family: Calibri,  'Gill Sans', sans-serif;
+}
+.features > input[type="submit"] {
+    width: fit-content;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0 45%;
+    padding: 10px;
+    background: #89f0b1;
+    border: 3px solid green;
+    border-radius: 10px;
+    transition: ease-in 0.25s;
+    cursor: pointer;
+}
+
+.features > input[type="submit"]:hover {
+    transform: scale(1.10);
+    border: 4px double green;
+}
+
+@media (max-width: 560px) {
+    body {
+        width: 100%;
+    }
+    .container img {
+        width: 160px;
+        height: 160px;
+        margin: 10%;
+    }
+    .container h2 {
+        font-size: 1.6rem;
+    }
+    .container h5 {
+        font-size: 1.2rem;
+    }
+    .features > input[type="submit"] {
+        font-size: 1rem;
+        margin: 0 35%;
+    }
+}
+
+@media (min-width: 561px) and (max-width: 850px){
+    .container h2 {
+        font-size: 2rem;
+    }
+    .container h5 {
+        font-size: 1.5rem;
+    }
+    .container img {
+        width: 250px;
+        height: 250px;
+    }
+    .features > input[type="submit"] {
+        font-size: 1.3rem;
+        margin: 0 40%;
+    }
+}
