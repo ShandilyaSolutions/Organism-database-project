@@ -1,0 +1,20 @@
+from bs4 import BeautifulSoup
+import requests
+
+url="https://en.wikipedia.org/wiki/Aloe"
+
+r = requests.get(url)
+
+soup = BeautifulSoup(r.text,"html.parser")
+
+print(soup)
+""" This will return the whole html code of the page whose URL is mentioned in the variable 'url' """
+
+
+#DOCUMENTATION
+""" The output of this page will be used to extract important informations about a subject which in this case,
+      is a wikipedia web page whose link is mentioned in the 'url' variable."""
+      
+""" At some point of time, the url will be generated automatically"""
+""" Using google search library/API or simple scraping from pages like 'List_of_cultivars' etc, we will  extract the scientefic names of all the plants in the list 
+      and feed them one by one in the url variable using some script based on automation"""
