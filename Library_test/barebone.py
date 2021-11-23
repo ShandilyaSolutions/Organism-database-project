@@ -15,4 +15,6 @@ r = requests.get(url)
 """Change the comment when you know what is the use of that reuests.get()"""
 
 soup = BeautifulSoup(r.text, 'html.parser')
-#?
+# this parses a document.
+#syntax: <var> = BeautifulSoup(<string/open file handle>)
+""" Open File Handle is a temporary file name / identifier assigned to an open file that's currently being utilized by an OS 
