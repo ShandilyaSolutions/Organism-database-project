@@ -1,3 +1,6 @@
+# this code is crap. just used as a location holder untill newer version is created
+
+
 import cgi
 form = cgi.FieldStorage()
 kingdom =  form.getvalue('kingdom')
