@@ -1,0 +1,60 @@
+"""this code takes a wikipedia URL and returns the scraped data :
+      KINGDOM
+      CLASS
+      PHYLUM
+      CLASS
+      ORDER
+      SUPERORDER
+      CLADE(whatever it is)
+      FAMILY
+      SUBFAMILY
+      GENUS
+      and COMMON NAME"""
+
+from bs4 import BeautifulSoup
+import requests
+
+url= """Enter the wikipedia page url here"""
+name = url.split("/")[-1]
+
+
+r = requests.get(url)
+
+
+soup = BeautifulSoup(r.text,"html.parser")
+tags = list(soup.select("table.biota td"))
+
+biota = {}
+
+biota["Common Name"]=name
+
+i = 0
+while i < len(tags):
+    tag_text = tags[i].text.strip().strip(":").lower()
+
+    if tag_text in ("kingdom", "clade", "phylum","class", "order", "superorder", "family", "subfamily", "genus"):
+        key = tag_text
+        value = tags[i+1].text.strip()
+
+        biota[key] = value
+        i += 2
+
+    elif tag_text == "species":
+        key = tag_text
+        value = [t.text.strip() for t in tags[i+1:]]
+
+        biota[key] = value
+        break
+
+    else:
+        i += 1
+
+from pprint import pprint
+pprint(biota)
+
+"""Now you have to add the feilds like Scientefic name images etc
+        1. Scientefic name 
+        2. Images
+        3. Genera
+        4. """
+"""Also you have to convert this snippet as a function"""
